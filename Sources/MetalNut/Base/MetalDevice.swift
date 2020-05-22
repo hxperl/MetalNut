@@ -25,8 +25,9 @@ public class MetalDevice {
         commandQueue = device.makeCommandQueue()!
         colorSpace = CGColorSpaceCreateDeviceRGB()
 		let bundle = Bundle(for: MetalDevice.self)
-		let path = bundle.path(forResource: "default", ofType: "metallib")!
-        library = try! device.makeLibrary(filepath: path)
+//		let path = bundle.path(forResource: "default", ofType: "metallib")!
+//        library = try! device.makeLibrary(filepath: path)
+		library = try! device.makeDefaultLibrary(bundle: bundle)
     }
     
     public static func generateRenderPipelineState(vertexFunctionName: String, fragmentFunctionName: String, operationName: String) -> MTLRenderPipelineState {
